@@ -1,0 +1,17 @@
+<apex:page standardController="Account">
+  <div id="renderLightingComponent"/>
+  <apex:includeLightning />
+  
+  <script>
+            $Lightning.use("c:ConstruirPedidoApp", function() {
+                $Lightning.createComponent(
+                    "c:ConstruirPedido",
+                    {accountId:'{!Account.Id}'},
+                    "renderLightingComponent",
+                    function(cmp) {
+                        console.log("Component is created!");
+                        console.log(cmp);
+                    });
+                });
+  </script>
+</apex:page>
